@@ -1,0 +1,55 @@
+// display
+    display background of page (behind calculator) as brown
+    display background of calculator as white
+    display calculation window with beige background
+    display text in window as black text
+    display all text on buttons in white text
+    display AC (all clear) and CE (clear entry) as red buttons
+    display %, /, *, -, + as black buttons
+    display numbers 0-9 as black buttons
+    display decimal point as black button
+    display equal sign as black button
+    display border of calculator 
+
+// format
+    title: ELECTRONIC CALCULATOR (center)
+    split into 4x6 grid
+        row 1: calculation window
+        row 2: AC, CE, %, /
+        row 3: 7, 8, 9, *
+        row 4: 4, 5, 6, -
+        row 5: 1, 2, 3, +
+        row 6: 0, ., =, + (starts in row 5)
+
+// calculation window
+    displays 9 digits
+    displays a number, infinity, or NaN
+
+// computations
+    create empty array variable (entries)
+    create variable set to 0 (total)
+    create empty string variable (temp)
+    associate each button with click event listener and assign value to variable (val)
+    if val is a number or decimal point, add to temp and display in window
+    else if val is AC, emptry entries array, temp string, and total. display nothing in window
+    else if val is CE, emptry temp string and display nothing in window.
+    else if val is x, add to temp to entries, add val to entries, clear temp.
+    else if val is /, add to temp to entries, add val to entries, clear temp.
+    else if val is =, add temp to entries, perform calculation
+        create variable to store first item in entries array converted from string to number (nt)
+        for second item in entries array
+            create symbol variable to store that item
+            create variable to store the nextNum which is the following item in array, converted to a number.
+            if symbol is +, add nextNum to nt.
+            else if symbol is -, subtract nextNum from nt.
+            else if symbol is *, multiple nextNum times nt.
+            else if symbol is /, divide nextNum by nt.
+            add one to loop item in order for loop to increment by 2 to get the next symbol in array.
+    don't understand the "swap -" part at the end
+
+// reach goals
+    press clear button, show 0, then make sure 0 doesn't start before the next number (also, )
+    accept keyboard inputs instead of just mouse clicks
+    don't allow multiple decimal points in the same entry
+    
+    
