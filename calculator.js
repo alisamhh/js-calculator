@@ -4,8 +4,8 @@ var temp = "";
 $("button").click(function () {
     var val = $(this).text();
     if (!isNaN(val) || val === ".") {
-        if ((temp == "" && val == "0") ||
-            (temp.indexOf(".") > -1 && val === ".")) {
+        if (temp == "" && val == "0" ||
+        temp.indexOf(".") > -1 && val === ".") {
             return;
         }
         temp = temp + val;
@@ -28,16 +28,24 @@ $("button").click(function () {
                     break;
                 case "/":
                     total /= nextEntry;
-                    break;
-                }
+                    break;}
+
             i = i + 2;
         }
         $("#display").val(total);
+        entries = [];
+        temp = total;
     } else {
-        entries.push(temp);
-        entries.push(val);
-        temp = "";
-        $("#display").val(temp);
+        var entriesLength = entries.length;
+        if (entriesLength && isNaN(entries[entriesLength - 1])) {
+            entries.pop();
+            entries.push(val);
+        } else {
+            entries.push(temp);
+            entries.push(val);
+            temp = "";
+            $("#display").val(temp);
+        }
     }
 });
 $("#clear").click(function () {
